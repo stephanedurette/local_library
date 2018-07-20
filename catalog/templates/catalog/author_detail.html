@@ -1,0 +1,21 @@
+{% extends "catalog/header.html" %}
+
+{% block content %}
+<h1>Author: {{author.last_name}}, {{author.first_name}}</h1>
+<h6>({{author.date_of_birth}} - {{author.date_of_death}})</h6>
+  
+<div style="margin-left:20px;margin-top:20px">
+    <h1>Books</h1>
+
+    {% for book in author.book_set.all %}
+    <hr>
+    <a href = "{{ book.get_absolute_url }}"><h3>{{book.title}}</h3></a>
+    <p>{{book.summary}}</p>
+    {% endfor %}
+  </div>  
+  
+  
+  
+  
+  
+{% endblock %}
